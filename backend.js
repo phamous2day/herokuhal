@@ -2,15 +2,15 @@ var express = require('express');
 var mongoose = require('mongoose');
 //cool debugger that gives more detailed message in terminal
 // mongoose.set('debug', true);
-// var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 var Promise = require('bluebird');
 var bodyParser = require('body-parser');
 var randtoken = require('rand-token');
 var cors = require('cors');
 var request = require('request');
 var app = express();
-// var mongoCreds = require('./mongo_creds.json');
-mongoose.connect(process.env.MONGOLAB_URI);
+var mongoCreds = require('./mongo_creds.json');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://' + mongoCreds.username + ':' + mongoCreds.password + '@ds023674.mlab.com:23674/phamous-db');
 var port = process.env.PORT || 5000;
 
 var fs = require('fs');
