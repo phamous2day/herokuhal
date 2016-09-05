@@ -1,6 +1,6 @@
 // var API = 'http://localhost:5000';
 
-var API = 'http://limitless-falls-21423.herokuapp.com';
+var API = 'http://obscure-brook-35938.herokuapp.com/';
 
 var app = angular.module('HAL-app', ['ngRoute', 'ngCookies']);
 
