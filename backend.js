@@ -9,7 +9,7 @@ var randtoken = require('rand-token');
 var cors = require('cors');
 var request = require('request');
 var app = express();
-var mongoCreds = require('./mongo_creds.json');
+// var mongoCreds = require('./mongo_creds.json');
 mongoose.connect(process.env.MONGOLAB_URI);
 var port = process.env.PORT || 5000;
 
