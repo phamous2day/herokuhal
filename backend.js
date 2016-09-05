@@ -3,14 +3,16 @@ var mongoose = require('mongoose');
 //cool debugger that gives more detailed message in terminal
 // mongoose.set('debug', true);
 
-var mongoCreds = require('./mongo_creds.json');
+// var mongoCreds = require('./mongo_creds.json');
 var Promise = require('bluebird');
 var bodyParser = require('body-parser');
 var randtoken = require('rand-token');
 var cors = require('cors');
 var request = require('request');
 var app = express();
-mongoose.connect('mongodb://' + mongoCreds.username + ':' + mongoCreds.password + '@ds023674.mlab.com:23674/phamous-db');
+// var MONGODB_URI = require('./env');
+mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect('mongodb://' + mongoCreds.username + ':' + mongoCreds.password + '@ds023674.mlab.com:23674/phamous-db');
 var port = process.env.PORT || 5000;
 
 var fs = require('fs');
@@ -256,7 +258,9 @@ function authRequired(req, res, next) {
     });
   });
 
+  app.listen(process.env.PORT || 5000);
+
   //end of HAl image capture code
-  app.listen(port, function() {
-  console.log("Listening on " + port);
-  });
+  // app.listen(port, function() {
+  // console.log("Listening on " + port);
+  // });
